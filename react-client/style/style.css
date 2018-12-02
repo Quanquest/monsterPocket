@@ -1,0 +1,12 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "player1 vs player2";
+}
+
+.player1 { grid-area: player1; }
+
+.vs { grid-area: vs; }
+
+.player2 { grid-area: player2; }
