@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 // var items = require('../database-mysql');
 // var items = require('../database-mongo');
 
+var port = 3000;
 var app = express();
 
 app.use(express.static(__dirname + '/../react-client/dist'));
@@ -18,7 +19,7 @@ app.get('/items', function (req, res) {
   });
 });
 
-app.listen(3000, function() {
-  console.log('Ready for action on port 3000!');
+app.listen(port, function() {
+  console.log(`Ready for battle on port ${port}!`);
 });
 

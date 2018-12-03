@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Player from './components/Player.jsx';
+import Winner from './components/Winner.jsx';
 import styles from '../style/style.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      player: '',
-      redMon: '',
-      blueMon: '',
+      redMon: 'Squirtle',
+      blueMon: 'Bulbasaur',
+      winnerFound: false,
     }
     
 
@@ -38,7 +39,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>Monster Pocket - Battle!</h1>
+      <h1>Monster Pocket!</h1>
       <div className={styles.gridContainer}>
         <div className={styles.player1}>
           <h4>RED TEAM</h4>
@@ -60,6 +61,7 @@ class App extends React.Component {
           </label>        
         </div>
       </div>
+      <Winner redMon={this.state.redMon} blueMon={this.state.blueMon} />
 
 
     </div>)

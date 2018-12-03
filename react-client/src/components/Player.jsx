@@ -1,13 +1,15 @@
 import React from 'react';
-import pokemonNames from '../data/pokedex.js';
+import pokedex from '../data/pokedex.js';
 
 const Player = (props) => (
   <div>
     <form onChange={props.handleChange}>
       <select>
-      {
-          pokemonNames.map(function(pokemonName) {
-            return <option>{pokemonName.species}</option>
+        {
+          Object.keys(pokedex).map((pokemonName) => {
+            return <option key={pokedex[pokemonName].num.toString()}>
+              {pokemonName}
+            </option>
           })
         }
       </select>
