@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Player from './components/Player.jsx';
 // import Winner from './components/Winner.jsx';
 import BattleButton from './components/BattleButton.jsx';
+import Sprite from './components/Sprite.jsx';
 import styles from '../style/style.css';
 
 import pokedex from './data/pokedex.js';
@@ -91,6 +92,7 @@ class App extends React.Component {
             <label>
               Choose your Pokémon!
               <Player handleChange={this.handleRedChange} />
+              <Sprite pokemonName={this.state.redMon} />
             </label>
           </div>
 
@@ -103,6 +105,7 @@ class App extends React.Component {
             <label>
             Choose your Pokémon!
             <Player handleChange={this.handleBlueChange} />
+            <Sprite pokemonName={this.state.blueMon} />
             </label>        
           </div>
         </div>
