@@ -2,8 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Player from './components/Player.jsx';
-import Winner from './components/Winner.jsx';
+// import Winner from './components/Winner.jsx';
+import BattleButton from './components/BattleButton.jsx';
 import styles from '../style/style.css';
+
+import pokedex from './data/pokedex.js';
+import type from './data/type.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,10 +15,13 @@ class App extends React.Component {
     this.state = { 
       redMon: 'Squirtle',
       blueMon: 'Bulbasaur',
-      winnerFound: false,
+      battleReady: false,
+      result: undefined,
     }
-    
-
+    this.handleRedChange = this.handleRedChange.bind(this);
+    this.handleBlueChange = this.handleBlueChange.bind(this);
+    this.toggleBattleReady = this.toggleBattleReady.bind(this);
+    this.chooseWinner = this.chooseWinner.bind(this);
   }
 
   // componentDidMount() {
@@ -36,35 +43,74 @@ class App extends React.Component {
   handleBlueChange(event) {
     this.setState({blueMon: event.target.value});
   }
+  toggleBattleReady(event) {
+    this.setState({battleReady: !this.state.battleReady})
+  }
+
+  chooseWinner() {
+    let redType = pokedex[this.state.redMon].type;
+    let blueType = pokedex[this.state.blueMon].type;
+    let redAdv = type[redType].strongAgainst.includes(blueType);
+    let blueAdv = type[blueType].strongAgainst.includes(redType);
+    if (redAdv && !blueAdv) {
+      this.setState({result: 'Red Team wins!'})
+    }
+    if (!redAdv && blueAdv) {
+      this.setState({result: 'Blue Team wins!'})
+    }
+    if ((redAdv && blueAdv) || (!redAdv && !blueAdv)) {
+      this.setState({result: 'Draw!'})
+    }
+  }
 
   render () {
-    return (<div>
-      <h1>Monster Pocket!</h1>
-      <div className={styles.gridContainer}>
-        <div className={styles.player1}>
-          <h4>RED TEAM</h4>
-          <label>
+    // make a variable that binds componenet that tells win or lose
+    let winner;
+    if (this.state.battleReady) {
+      winner = <div>{this.state.result}</div>
+    } else {
+      winner = <div>Prepare for glorious battle!</div>
+    }
+    // if (this.state.winner.length === 0) {
+    //   winner = <div></div>;
+    // } else if (redAdv && !blueAdv) {
+    //   winner = <div>'Red Team wins!'</div>;
+    // }
+    // if (!redAdv && blueAdv) {
+    //   this.setState({result: 'Blue Team wins!'})
+    // }
+    // if ((redAdv && blueAdv) || (!redAdv && !blueAdv)) {
+    //   this.setState({result: 'Draw!'})
+    // }
+    return (
+      <div>
+        <h1>Monster Pocket!</h1>
+        <div className={styles.gridContainer}>
+          <div className={styles.player1}>
+            <h4>RED TEAM</h4>
+            <label>
+              Choose your Pokémon!
+              <Player handleChange={this.handleRedChange} />
+            </label>
+          </div>
+
+          <div className={styles.vs}>
+          VERSUS
+          </div>
+
+          <div className={styles.player2}>
+            <h4>BLUE TEAM</h4>
+            <label>
             Choose your Pokémon!
-            <Player handleChange={this.handleRedChange.bind(this)} />
-          </label>
+            <Player handleChange={this.handleBlueChange} />
+            </label>        
+          </div>
         </div>
-
-        <div className={styles.vs}>
-        VERSUS
-        </div>
-
-        <div className={styles.player2}>
-          <h4>BLUE TEAM</h4>
-          <label>
-          Choose your Pokémon!
-          <Player handleChange={this.handleBlueChange.bind(this)} />
-          </label>        
-        </div>
-      </div>
-      <Winner redMon={this.state.redMon} blueMon={this.state.blueMon} />
+        <BattleButton toggleBattleReady={this.toggleBattleReady, this.chooseWinner} />
+        {winner}
 
 
-    </div>)
+      </div>)
   }
 }
 

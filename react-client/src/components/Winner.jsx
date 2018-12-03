@@ -36,17 +36,13 @@ class Winner extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <p>
-          {this.props.redMon}
-        </p>
-        <p>
-          {this.props.blueMon}
-        </p>
-        {this.state.result}
-      </div>
-    )
+    {
+        return (
+          <div>
+            {this.state.result}
+          </div>
+        )
+    }
   }
 }
 
