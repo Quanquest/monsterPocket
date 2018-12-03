@@ -14,10 +14,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      redMon: 'Squirtle',
+      redMon: 'Bulbasaur',
       blueMon: 'Bulbasaur',
       battleReady: false,
-      result: undefined,
+      result: 'Prepare for glorious battle!',
     }
     this.handleRedChange = this.handleRedChange.bind(this);
     this.handleBlueChange = this.handleBlueChange.bind(this);
@@ -44,7 +44,7 @@ class App extends React.Component {
   handleBlueChange(event) {
     this.setState({blueMon: event.target.value});
   }
-  toggleBattleReady(event) {
+  toggleBattleReady() {
     this.setState({battleReady: !this.state.battleReady})
   }
 
@@ -66,12 +66,12 @@ class App extends React.Component {
 
   render () {
     // make a variable that binds componenet that tells win or lose
-    let winner;
-    if (this.state.battleReady) {
-      winner = <div>{this.state.result}</div>
-    } else {
-      winner = <div>Prepare for glorious battle!</div>
-    }
+    // let winner;
+    // if (this.state.battleReady) {
+    //   winner = <div>{this.state.result}</div>
+    // } else {
+    //   winner = <div>Prepare for glorious battle!</div>
+    // }
     // if (this.state.winner.length === 0) {
     //   winner = <div></div>;
     // } else if (redAdv && !blueAdv) {
@@ -110,7 +110,7 @@ class App extends React.Component {
           </div>
         </div>
         <BattleButton toggleBattleReady={this.toggleBattleReady, this.chooseWinner} />
-        {winner}
+        {this.state.result}
 
 
       </div>)
