@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import pokedex from '../data/pokedex.js';
+import styles from '../../style/style.css';
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -24,16 +25,16 @@ const StatBlock = (props) => {
     <div>
       <img src={sprite} />
       <h3>{species}</h3>
-      <h4>Type: {type}</h4>
-      <h4>Base Stats</h4>
-      <ul>
-        <li>Hit Points: {hp}</li>
-        <li>Attack: {atk}</li>
-        <li>Defense: {def}</li>
-        <li>Special Attack: {spa}</li>
-        <li>Special Defense: {spd}</li>
-        <li>Speed: {spe}</li>
-      </ul>
+      <h3>Type: {type}</h3>
+      <h3>Base Stats</h3>
+      <div className={styles.statBlock}>
+        <p>Hit Points: {hp}</p>
+        <p>Attack: {atk}</p>
+        <p>Defense: {def}</p>
+        <p>Special Attack: {spa}</p>
+        <p>Special Defense: {spd}</p>
+        <p>Speed: {spe}</p>
+      </div>
     </div>
   )
 }

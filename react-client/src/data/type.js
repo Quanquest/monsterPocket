@@ -41,7 +41,7 @@ const type = {
     weakTo: ['ice', 'dragon']
   },
   fighting: {
-    strongAgainst: ['ice', 'rock', 'normal'],
+    strongAgainst: ['ice', 'rock', 'normal', 'dark'],
     weakTo: ['psychic', 'flying']
   },
   psychic: {
@@ -55,6 +55,10 @@ const type = {
   poison: {
     strongAgainst: ['grass'],
     weakTo: ['psychic', 'ground']
+  },
+  dark: {
+    strongAgainst: ['psychic', 'ghost'],
+    weakTo: ['fighting', 'fairy', 'bug']
   }
 }
 

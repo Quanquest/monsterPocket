@@ -1,3 +1,4 @@
+
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -5,8 +6,42 @@
   grid-template-areas: "player1 vs player2";
 }
 
-.player1 { grid-area: player1; }
+.player1 {
+  font-family: impact;
+  grid-area: player1; 
+  background-color: #fff8bc;
+  border: 10px solid #ff496e;
+  padding: 10px;
+  }
 
-.vs { grid-area: vs; }
+.vs {
+  grid-area: vs; 
+  background-color: #42f4cb;
+  font-family: impact;
+  text-align: center;
+  }
 
-.player2 { grid-area: player2; }
+.player2 {
+  font-family: impact;
+  grid-area: player2; 
+  background-color: #fff8bc;
+  text-align: right;
+  border: 10px solid #9bd2ff;
+  padding: 10px;
+  }
+
+.page {
+ /* background-color: #9bd2ff; */
+}
+
+.result {
+  font-family: impact;
+}
+
+.title {
+  font-family: impact;
+}
+
+.statBlock {
+  list-style: none;
+}

@@ -112,6 +112,13 @@ const pokedex = {
     baseStats: {hp: 41, atk: 64, def: 45, spa: 50, spd: 50, spe: 50},
     gen7Sprite: 'https://s3-us-west-1.amazonaws.com/rhood/dratini.gif',
   },
+  Umbreon: {
+    num: 197,
+    species: "Umbreon",
+    type: 'dark',
+    baseStats: {hp: 95, atk: 65, def: 110, spa: 60, spd: 130, spe: 65},
+    gen7Sprite: 'https://s3-us-west-1.amazonaws.com/rhood/umbreon.gif',
+  },
   Palossand: {
 		num: 770,
 		species: "Palossand",
