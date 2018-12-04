@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Player from './components/Player.jsx';
-// import Winner from './components/Winner.jsx';
 import BattleButton from './components/BattleButton.jsx';
 import Sprite from './components/Sprite.jsx';
+// import StatBlock from './components/StatBlock.jsx';
 import styles from '../style/style.css';
 
 import pokedex from './data/pokedex.js';
@@ -18,6 +18,7 @@ class App extends React.Component {
       blueMon: 'Bulbasaur',
       battleReady: false,
       result: 'Prepare for glorious battle!',
+      show: false,
     }
     this.handleRedChange = this.handleRedChange.bind(this);
     this.handleBlueChange = this.handleBlueChange.bind(this);
@@ -38,6 +39,14 @@ class App extends React.Component {
   //     }
   //   });
   // }
+
+  // showModal = () => {
+  //   this.setState({ show: true });
+  // }
+  // hideModal = () => {
+  //   this.setState({ show: false });
+  // }
+
   handleRedChange(event) {
     this.setState({redMon: event.target.value});
   }
@@ -73,8 +82,7 @@ class App extends React.Component {
             <h4>RED TEAM</h4>
             <label>
               Choose your Pokémon!
-              <Player handleChange={this.handleRedChange} />
-              <Sprite pokemonName={this.state.redMon} />
+              <Player handleChange={this.handleRedChange} chosenMon={this.state.redMon} />
             </label>
           </div>
 
@@ -86,13 +94,13 @@ class App extends React.Component {
             <h4>BLUE TEAM</h4>
             <label>
             Choose your Pokémon!
-            <Player handleChange={this.handleBlueChange} />
-            <Sprite pokemonName={this.state.blueMon} />
+            <Player handleChange={this.handleBlueChange} chosenMon={this.state.blueMon} />
             </label>        
           </div>
         </div>
+
         <BattleButton toggleBattleReady={this.toggleBattleReady, this.chooseWinner} />
-        {this.state.result}
+        <h2>{this.state.result}</h2>
 
 
       </div>)
@@ -100,3 +108,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+// <StatBlock pokemonName={this.state.redMon} />   
+// <StatBlock pokemonName={this.state.blueMon} />   

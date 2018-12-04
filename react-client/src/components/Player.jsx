@@ -1,5 +1,6 @@
 import React from 'react';
 import pokedex from '../data/pokedex.js';
+import StatBlock from './StatBlock.jsx';
 
 const Player = (props) => (
   <div>
@@ -14,6 +15,7 @@ const Player = (props) => (
         }
       </select>
     </form>
+    <StatBlock chosenMon={props.chosenMon} />
   </div>
 )
 
