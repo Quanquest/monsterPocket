@@ -1,14 +1,14 @@
-DROP DATABASE IF EXISTS test;
+DROP DATABASE IF EXISTS monsterPocket;
 
-CREATE DATABASE test;
+CREATE DATABASE monsterPocket;
 
-USE test;
+USE monsterPocket;
 
-CREATE TABLE items (
-  id int NOT NULL AUTO_INCREMENT,
-  quantity integer NOT NULL,
-  description varchar(50) NOT NULL,
-  PRIMARY KEY (ID)
+CREATE TABLE winrate (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pokemon TEXT(255) NOT NULL,
+  victories INT NOT NULL,
+  defeats INT NOT NULL
 );
 
 /*  Execute this file from the command line by typing:

@@ -65,24 +65,6 @@ class App extends React.Component {
   }
 
   render () {
-    // make a variable that binds componenet that tells win or lose
-    // let winner;
-    // if (this.state.battleReady) {
-    //   winner = <div>{this.state.result}</div>
-    // } else {
-    //   winner = <div>Prepare for glorious battle!</div>
-    // }
-    // if (this.state.winner.length === 0) {
-    //   winner = <div></div>;
-    // } else if (redAdv && !blueAdv) {
-    //   winner = <div>'Red Team wins!'</div>;
-    // }
-    // if (!redAdv && blueAdv) {
-    //   this.setState({result: 'Blue Team wins!'})
-    // }
-    // if ((redAdv && blueAdv) || (!redAdv && !blueAdv)) {
-    //   this.setState({result: 'Draw!'})
-    // }
     return (
       <div>
         <h1>Monster Pocket!</h1>
